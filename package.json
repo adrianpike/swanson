@@ -1,0 +1,12 @@
+{
+  "name": "swanson",
+  "version": "0.0.1",
+  "dependencies": {
+    "gm": ">=0.0.0",
+    "config": ">=0.0.0",
+    "winston": ">=0.0.0"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}

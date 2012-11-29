@@ -1,0 +1,11 @@
+{
+  "port": "8080",
+  "logfile":  "swanson.log",
+  "default_width": 500,
+  "default_height": 500,
+  "max_redirects":  5,
+  "geometry_string": "^",
+  "max_age": "315569000",
+  "max_size": "5242880", // 5 megs
+  "secret": "CHANGEMEPLEASE"
+}

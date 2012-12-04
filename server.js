@@ -13,6 +13,7 @@ var logger = new (winston.Logger)({
 
 var crypto = require('crypto');
 var http = require('http');
+var https = require('https');
 var url = require('url');
 var gm = require('gm');
 var fs = require('fs');
@@ -28,12 +29,14 @@ proxy_url = function(url, resp, opts) {
   opts.watermark = opts.watermark || null;
 
   logger.info('Fetching:',url);
-  var client_req = http.request(url, function(res) {
+  var client = (url.match('^https') ? https : http);
+  var client_req = client.request(url, function(res) {
     logger.debug('STATUS: ' + res.statusCode);
     logger.debug('HEADERS: ' + JSON.stringify(res.headers));
 
     switch (res.statusCode) {
       case 301:
+      case 302:
         opts.redirects_left -= 1;
         if (opts.redirects_left > 0) {
           return proxy_url(res.headers['location'], resp, opts);

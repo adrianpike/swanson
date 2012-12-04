@@ -11,6 +11,8 @@ It's heavily influenced by Camo - we specifically needed image manipulation thou
 Quickstart
 ----------
 
+Install Graphicsmagick using your favorite method.
+
     > npm install
     > node server.js
 

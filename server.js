@@ -45,7 +45,8 @@ proxy_url = function(url, resp, opts) {
         }
         break;
       case 200:
-        if (CONFIG.max_size && res.headers['content-length'] > CONFIG.max_size) {
+        if (CONFIG.max_size && (parseInt(res.headers['content-length']) > parseInt(CONFIG.max_size))) {
+          logger.debug('TOO BIG: ' + res.headers['content-length']);
           die('Too big an image', resp);
         }
 
